@@ -43,6 +43,5 @@ jobs:
       - run: aws s3 ls s3://jfudawg
       - run: pwd
       - run: ls
-      - run: ls $GITHUB_WORKSPACE
-      - run: pip3 install -r $GITHUB_WORKSPACE/requirements.txt
-      - run: python3 $GITHUB_WORKSPACE/deploy/upsert_lambda.py -f $GITHUB_WORKSPACE/lambdas/somewhere/get/lambda_function.py -e staging
+      - run: pip3 install -r requirements.txt
+      - run: python3 deploy/upsert_lambda.py -f lambdas/somewhere/get/lambda_function.py -e staging
