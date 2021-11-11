@@ -30,6 +30,7 @@ jobs:
         with:
           repository: yieldmo/dcs-common-python
           token: ${{ secrets.GIT_TOKEN }}
+          path: ./dcs-common-python
 
       # setup AWS CLI and boto3
       - uses: aws-actions/configure-aws-credentials@v1
@@ -40,6 +41,7 @@ jobs:
       # sam build
       #- run: git clone https://${{ secrets.$GIT_USERNAME }}:${{ secrets.$GIT_PASSWORD }}@github.com/yieldmo/dcs-common-python.git
       - run: aws s3 ls s3://jfudawg
+      - run: pwd
       - run: ls
       - run: ls $GITHUB_WORKSPACE
       - run: pip3 install -r $GITHUB_WORKSPACE/requirements.txt
