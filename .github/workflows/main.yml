@@ -30,6 +30,6 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ##region##
-      # sam build 
-      - run: aws s3 ls s3://jfu-dcs-sandbox.yieldmo.com
+          aws-region: us-east-1
+      # sam build
+      - run: aws s3 ls s3://jfudawg
