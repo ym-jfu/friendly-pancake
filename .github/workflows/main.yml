@@ -25,6 +25,12 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
+
+      - uses: actions/checkout@v2
+        with:
+          repository: yieldmo/dcs-common-python
+          token: ${{ secrets.GIT_TOKEN }}
+
       # setup AWS CLI and boto3
       - uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -32,7 +38,7 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
       # sam build
-      - run: git clone https://$GIT_USERNAME:$GIT_PASSWORD@github.com/yieldmo/dcs-common-python.git
+      #- run: git clone https://${{ secrets.$GIT_USERNAME }}:${{ secrets.$GIT_PASSWORD }}@github.com/yieldmo/dcs-common-python.git
       - run: aws s3 ls s3://jfudawg
       - run: pip3 install -r requirements.txt
       - run: python3 deploy/upsert_lambda.py -f lambdas/somewhere/get/lambda_function.py -e staging
