@@ -40,5 +40,5 @@ jobs:
       # sam build
       #- run: git clone https://${{ secrets.$GIT_USERNAME }}:${{ secrets.$GIT_PASSWORD }}@github.com/yieldmo/dcs-common-python.git
       - run: aws s3 ls s3://jfudawg
-      - run: pip3 install -r requirements.txt
-      - run: python3 deploy/upsert_lambda.py -f lambdas/somewhere/get/lambda_function.py -e staging
+      - run: pip3 install -r $GITHUB_WORKSPACE/requirements.txt
+      - run: python3 $GITHUB_WORKSPACE/deploy/upsert_lambda.py -f $GITHUB_WORKSPACE/lambdas/somewhere/get/lambda_function.py -e staging
